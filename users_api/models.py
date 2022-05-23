@@ -2,16 +2,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
+from django.contrib.auth.models import PermissionsMixin
 
-
-class UserModelManager():
+class UserModelManager(BaseUserManager):
     """Manager for users"""
-    def create_user(self, email,password,name):
+    def create_user(self, email,password ,name):
         """Create a new user"""
         if not email:
             raise ValueError('User must have an email address')
-        if not password:
-            raise ValueError('User must have an password')
         email = self.normalize_email(email)
         user=self.model(email=email,name=name)
         # Password encryption
@@ -19,9 +17,9 @@ class UserModelManager():
         user.save(using=self._db)
         return user
 
-    def create_super_user(self, email,password,name):
+    def create_superuser(self, email,password,name):
         """Create a new superuser"""
-        user = self.create_user(email,name,password)
+        user = self.create_user(email,password,name)
         user.is_superuser=True
         user.is_staff=True
         user.save(using=self._db)
