@@ -1,6 +1,5 @@
 from rest_framework import permissions
 
-
 class UpdateOwnUser(permissions.BasePermission):
     """Allow users to edit their own profile"""
 
