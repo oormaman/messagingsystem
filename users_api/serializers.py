@@ -1,8 +1,9 @@
 from rest_framework import serializers
 from users_api import models
+
 class HelloSerializer(serializers.Serializer):
     """Serializes a name field for testing out APIView"""
-    name = serializers.CharField(max_length=10)
+    message = serializers.CharField(max_length=10)
 
 class UsersSerializer(serializers.ModelSerializer):
     """Serializes a user profile object"""
@@ -39,5 +40,5 @@ class MessageItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.MessageItem
-        fields = ('id', 'sender','recipient', 'subject','message', 'created_on')
+        fields = ('id', 'sender_id','recipient_id', 'subject','message', 'created_on','recipient_of_the_message_read_it')
         extra_kwargs = {'sender': {'read_only': True}}

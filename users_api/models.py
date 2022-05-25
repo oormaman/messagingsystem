@@ -4,6 +4,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.conf import settings
+
 class UserModelManager(BaseUserManager):
     """Manager for users"""
     def create_user(self, email,password ,name):
@@ -49,12 +50,8 @@ class UserModel(AbstractBaseUser, PermissionsMixin):
 
 class MessageItem(models.Model):
     """Message Item"""
-    sender = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
-    )
-    recipient = models.CharField(max_length=255)
-    # recipient=models.ForeignKey(UserModel,on_delete=models.CASCADE, related_name='recipient',null=True)
+    sender_id = models.CharField(max_length=255)
+    recipient_id = models.CharField(max_length=255)
     subject = models.CharField(max_length=255)
     message = models.CharField(max_length=255)
     recipient_of_the_message_read_it=models.BooleanField(default=False)
