@@ -34,10 +34,10 @@ class UsersSerializer(serializers.ModelSerializer):
         return super().update(instance, validated_data)
 
 
-# class ProfileFeedItemSerializer(serializers.ModelSerializer):
-#     """Serializes profile feed items"""
-#
-#     class Meta:
-#         model = models.ProfileFeedItem
-#         fields = ('id', 'users_api', 'status_text', 'created_on')
-#         extra_kwargs = {'user_profile': {'read_only': True}}
+class MessageItemSerializer(serializers.ModelSerializer):
+    """Serializes profile feed items"""
+
+    class Meta:
+        model = models.MessageItem
+        fields = ('id', 'sender','recipient', 'subject','message', 'created_on')
+        extra_kwargs = {'sender': {'read_only': True}}
