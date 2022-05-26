@@ -34,9 +34,9 @@ supervisorctl update
 supervisorctl restart users_api
 
 # Setup nginx to make our application accessible.
-cp $PROJECT_BASE_PATH/MessagingSystem/deploy/nginx_users_api.conf /etc/nginx/sites-available/users_api.conf
+cp $PROJECT_BASE_PATH/MessagingSystem/deploy/nginx_users_api.conf/etc/nginx/sites-available/users_api.conf
 rm /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/users_api.conf /etc/nginx/sites-enabled/users_api.conf
+ln -s /etc/nginx/sites-available/users_api.conf/etc/nginx/sites-enabled/users_api.conf
 systemctl restart nginx.service
 
 echo "DONE! :)"
