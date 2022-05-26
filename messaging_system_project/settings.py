@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from asyncio import FastChildWatcher
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,9 +25,9 @@ SECRET_KEY = '2pxvs-9z_ln6sr52fh2q!dhs!3wwtgtjwvkf&5b-!z9u0(#*bh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = bool(int(os.environ.get('DEBUG',1)))
+DEBUG = False
 
-ALLOWED_HOSTS = ['ec2-15-160-244-126.eu-south-1.compute.amazonaws.com','127.0.0.1' ]
+ALLOWED_HOSTS = [ ]
 
 
 
