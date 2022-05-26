@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from users_api import models
 
-class HelloSerializer(serializers.Serializer):
-    """Serializes a name field for testing out APIView"""
-    message = serializers.CharField(max_length=10)
+# class HelloSerializer(serializers.Serializer):
+#     """Serializes a name field for testing out APIView"""
+#     message = serializers.CharField(max_length=10)
 
 class UsersSerializer(serializers.ModelSerializer):
     """Serializes a user profile object"""
@@ -26,14 +26,6 @@ class UsersSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
-
-    def update(self, instance, validated_data):
-        """Handle updating user account"""
-        if 'password' in validated_data:
-            password = validated_data.pop('password')
-            instance.set_password(password)
-        return super().update(instance, validated_data)
-
 
 class MessageItemSerializer(serializers.ModelSerializer):
     """Serializes profile feed items"""

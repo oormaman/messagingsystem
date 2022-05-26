@@ -60,3 +60,7 @@ class MessageItem(models.Model):
     def __str__(self):
         """Return the model as a string"""
         return self.message
+    def get_sender_id(self):
+        return self.sender_id
+    def get_recipient_id(self):
+        return self.recipient_id
