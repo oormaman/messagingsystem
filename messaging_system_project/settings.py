@@ -29,7 +29,8 @@ SECRET_KEY = '2pxvs-9z_ln6sr52fh2q!dhs!3wwtgtjwvkf&5b-!z9u0(#*bh'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://messagingsystemormaman.herokuapp.com']
+ALLOWED_HOSTS = ['*']
+
 
 
 
