@@ -1,0 +1,1 @@
+web: gunicorn messaging_system_project.wsgi
