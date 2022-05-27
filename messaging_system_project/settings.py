@@ -29,7 +29,7 @@ SECRET_KEY = '2pxvs-9z_ln6sr52fh2q!dhs!3wwtgtjwvkf&5b-!z9u0(#*bh'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://messagingsystemormaman.herokuapp.com']
 
 
 
@@ -83,12 +83,24 @@ WSGI_APPLICATION = 'messaging_system_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+DATABASES={
+   'default':{
+      'ENGINE':'django.db.backends.postgresql_psycopg2',
+      'NAME':'d3lofq41j8sep5',
+      'USER':'wgwtdysyltltqe',
+      'PASSWORD':'ac3f907dbc262cb143999407fb89e6ff1ec196bc1d70bee26dbedc1f14d32c82',
+      'HOST':'ec2-44-196-174-238.compute-1.amazonaws.com',
+      'PORT':'5432',
+   }
 }
+
 
 
 # Password validation
@@ -133,6 +145,6 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL= 'users_api.UserModel'
 
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATIC_ROOT='static/'
+STATIC_ROOT='static/'
 
 django_heroku.settings(locals())
